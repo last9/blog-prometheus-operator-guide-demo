@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-operator-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-operator-demo
+  template:
+    metadata:
+      labels:
+        app: prometheus-operator-demo
+    spec:
+      containers:
+        - name: prometheus-operator-demo
+          image: prathamesh2kubectl port-forward svc/prometheus-operator-demo 8000:80/prometheus-operator-demo:latest
+          ports:
+            - name: http
+              containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-operator-demo
+  labels:
+    app: prometheus-operator-demo
+spec:
+  selector:
+    app: prometheus-operator-demo
+  ports:
+    - name: http
+      port: 80
