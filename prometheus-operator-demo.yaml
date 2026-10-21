@@ -15,7 +15,10 @@ spec:
     spec:
       containers:
         - name: prometheus-operator-demo
-          image: prathamesh2kubectl port-forward svc/prometheus-operator-demo 8000:80/prometheus-operator-demo:latest
+          # Built from this repo's Dockerfile into minikube (see README), so the
+          # deployed runtime is the one pinned there, not a third-party image.
+          image: prometheus-operator-demo:local
+          imagePullPolicy: Never
           ports:
             - name: http
               containerPort: 80
