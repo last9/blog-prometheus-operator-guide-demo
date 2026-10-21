@@ -6,7 +6,7 @@ This repository contains code files corresponding to the blog post on [Prometheu
 
 1. Minikube
 2. kubectl
-3. Node 24
+3. Node 24.22.1 (first 24.x release that rejects the distrusted eMudhra CA)
 4. npm
 
 ## Run on Minikube
@@ -18,6 +18,8 @@ minikube image build -t prometheus-operator-demo:local .
 kubectl apply -f prometheus-operator-demo.yaml
 kubectl port-forward svc/prometheus-operator-demo 8000:80
 ```
+
+`npm test` checks that the `Dockerfile`, `.nvmrc`, `engines.node` and this README pin the same Node release.
 
 ---
 
