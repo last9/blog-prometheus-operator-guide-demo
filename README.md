@@ -6,7 +6,7 @@ This repository contains code files corresponding to the blog post on [Prometheu
 
 1. Minikube
 2. kubectl
-3. Node 16
+3. Node 24
 4. npm
 
 ---
